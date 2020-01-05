@@ -1,0 +1,198 @@
+% ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+% Init
+
+	\documentclass[a4paper, oneside, 10pt]{report}
+
+% ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+% Packages
+
+	% [Search Tags: >packages >imports >includes >downloads >packs >libs]
+
+	\usepackage[utf8]{inputenc}       % [>inputenc]   :: Input Encoding
+	\usepackage{url}                  % [>url]        :: Link
+	\usepackage{hyperref}             % [>hyperref]   :: CrossReferencing, Links
+	\usepackage{xcolor}[svgnames]     % [>xcolor]     :: Color Names, Custom RGB
+	\usepackage{graphics}             % [>graphics]   :: Images
+	\usepackage{geometry}             % [>geometry]   :: ?
+	\usepackage{ragged2e}             % [>ragged2e]   :: \justifying{}
+	\usepackage{setspace}             % [>setspace]   :: Linespacing[s]
+	\usepackage{marginnote}           % [>marginnote] :: Marginal (Side) Notes
+	\usepackage{biblatex}             % [>biblatex]   :: Bibliography
+	\usepackage{hyphenat}             % [>hyphenat]   :: Hyphenation
+	\usepackage{ulem}                 % [>ulem]       :: Font Styles
+	\usepackage{amsmath}              % [>amsmath]    :: Beginner Math
+	\usepackage{alltt}                % [>alltt]      :: Verbatim w/ Commands
+	\usepackage{upquote}              % [>upquote]    :: Fixes Verbatim Quotes
+	\usepackage{listings}             % [>listings]   :: (Rudimentary) Enum/List
+	\usepackage{scrextend}            % [>scrextend]  :: Aligned Enum/List Items
+	\usepackage[inline]{enumitem}     % [>enumitem]   :: Enum/List Xtra Features
+	\usepackage[ampersand]{easylist}  % [>easylist]   :: Advanced Enums/Lists
+	\usepackage{tasks}                % [>tasks]      :: Horizontal Enum Items
+	\usepackage{exsheets}             % [>exsheets]   :: Exam Ex/Ques/Solutions
+
+	% Requires: luatex | xalatex
+	% \usepackage{ amslatex }         % [>amslatex] :: Full Math
+	% \usepackage{ fontspec }         % [>fontspec] :: Font Faces: OTF, TTF
+
+	% Toggles:
+	% \usepackage{ indentfirst }      % [>indentfirst] :: Indent All Beginnings
+	% \usepackage{ parskip }          % [>parskip] :: No Indents w/ Spaced Para
+
+
+% ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+% Settings
+
+	% [Search Tags: >settings >docsettings >documentsettings]
+
+	% Counter  :: Depth of the ToC counter. (Default=3)
+	\setcounter { tocdepth } { 6 } % [>tocdepth >depth]
+
+	% Counter :: Depth of the Document counter. (Default=3)
+	\setcounter { secnumdepth } { 3 } % [>secnumdepth >docdepth >depth]
+
+	% Length  :: Paragraph indentation length. (Default=15pt | 17pt)
+	\setlength { \parindent } { 15pt } % [>parindent >indent >spacing]
+
+	% Length :: Vertical paragraph spacing length. (Default={0cm,1mm,0mm})
+	\setlength { \parskip } { 0cm plus 1mm minus 0mm } % [>parskip >spacing]
+
+	% Stretch :: Vertical linespacing; i.e space between lines. (Default=1)
+	\singlespace            % \setstretch{1.0}   [>singlespace]
+	% \onehalfspace           % \setstretch{1.5}   [>onehalfspace]
+	% \doublespace            % \setstretch{2.0}   [>doublespace]
+	% \setstretch { 2.5 }     % \linespread { x }  [>setstretch >linespread]
+
+
+	% MARGIN NOTES - - - - - - - - - - - - - - - - - - - - - - - -
+
+	% Length :: Vertical Spacing bewteen notes. (Default=5pt)
+	\setlength { \marginparpush } { 5pt }
+
+	% Length :: Horizontal Spacing between the main text and the note. (Default=11pt)
+	\setlength { \marginparsep } { 11pt }
+
+	% Length :: Width of the note itself (Default=10pt)
+	\setlength { \marginparwidth } { 10pt }
+
+
+% ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+% Commands
+
+	% [Search Tags: >commands >renewcommands >newcommands >functions >fts >macros >funcs ]
+
+
+	% TABULATION - - - - - - - - - - - - - - - - - - - - - - - - -
+
+	\newcommand {\tab} [1] [1cm]
+		{\hspace*{#1}}
+	% -- End Command]
+
+
+	% NOTES, EXAMPLES, CODE - - - - - - - - - - - - - - - - - - - -
+
+	\newcommand {\example} [1]
+		{\noindent[\textit{Example:} #1 \textit{---end example}] }
+	% -- End Command]
+
+	\newcommand {\note} [1]
+		{\noindent[\textit{Note:} #1 \textit{---end note}] }
+	% -- End Command]
+
+	\newcommand {\code} [1]
+		{\noindent\texttt{#1} }
+	% -- End Command]
+
+
+	% MARGIN NOTES - - - - - - - - - - - - - - - - - - - - - - - -
+
+	\newcommand {\rightmarginnote} [2] [0cm]
+		{\marginnote{#2}[#1]}
+	% -- End Command]
+
+	\newcommand {\leftmarginnote} [2] [0cm]
+		{\reversemarginpar \marginnote{#2}[#1] \normalmarginpar}
+	% -- End Command]
+
+	\newcommand {\justifiedrightmarginnote} [2] [0cm]
+		{\rightmarginnote[#1]{\justifying{#2}}}
+	% -- End Command]
+
+	\newcommand {\justifiedleftmarginnote} [2] [0cm]
+		{\leftmarginnote[#1]{\justifying{#2}}}
+	% -- End Command]
+
+
+% ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+% Beginning
+
+	\begin {document} % [>begin]
+
+% ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+% Title Page
+
+	% [Search Tags: >titlepage >tpage ]
+
+	\title      {The Programming Reference} % [>title]
+	\author     {Aymen Kharroubi} % [>author]
+	\date       {\today} % [>date]
+
+	\maketitle % [>maketitle]
+
+
+% ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+% Table of Contents
+
+	% [Search Tags: >toctable >table >tableofcontents ]
+
+	\tableofcontents % [>tableofcontents]
+	\clearpage
+
+
+% ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+% Content Beginning [>contentbegin >content.begin]
+
+% .
+% .
+% .
+
+
+	\section [The Integer Memory] {The Integer Memory \hfill [types.int.memory]}
+
+		% [Search Tags: >types.int.memory >intmem >integermemory >int memory >integer memory >int bytes >interinos ]
+
+		\subparagraph [The New Coming Prince] {The New Coming Prince & The 7 Jerries with All their Kids}
+			% [Text start –-
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Interdum posuere lorem ipsum dolor sit. Vitae nunc sed velit dignissim sodales ut eu sem. Justo eget magna fermentum iaculis eu. Viverra nam libero justo laoreet sit. Eget magna fermentum iaculis eu. Scelerisque eleifend donec pretium vulputate sapien nec sagittis aliquam. Aliquet bibendum enim facilisis gravida neque convallis a cras. Sit amet porttitor eget dolor morbi non arcu risus quis. Aliquam purus sit amet luctus venenatis lectus magna fringilla. Urna nec tincidunt praesent semper feugiat nibh sed. Commodo quis imperdiet massa tincidunt nunc pulvinar. Euismod nisi porta lorem mollis aliquam ut porttitor leo. Arcu cursus euismod quis viverra. Euismod nisi porta lorem mollis aliquam ut porttitor leo a.
+
+				Proin sed libero enim sed faucibus turpis in eu. Duis at consectetur lorem donec massa sapien faucibus et. Laoreet non curabitur gravida arcu ac tortor dignissim. Tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras. Semper viverra nam libero justo laoreet sit amet. Gravida arcu ac tortor dignissim convallis aenean et tortor at. Lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit. Et odio pellentesque diam volutpat commodo sed egestas egestas fringilla. Tincidunt ornare massa eget egestas purus viverra accumsan in. Nulla facilisi nullam vehicula ipsum a arcu cursus vitae congue. Pellentesque nec nam aliquam sem et tortor consequat id porta. Turpis egestas sed tempus urna et pharetra pharetra massa massa. Nisl tincidunt eget nullam non. Euismod elementum nisi quis eleifend. Magna sit amet purus gravida quis blandit turpis. Tortor at risus viverra adipiscing at in tellus. Nam libero justo laoreet sit.
+			% -– Text End]
+		% -– Subparagraph End]
+
+		\subparagraph {Seventeen Dwarfs and their Step Fathers}
+			% [Text start –-
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quisque id diam vel quam elementum pulvinar. Orci nulla pellentesque dignissim enim. Magna fringilla urna porttitor rhoncus dolor purus. Mollis nunc sed id semper risus in hendrerit gravida rutrum. Faucibus turpis in eu mi bibendum. Ultrices neque ornare aenean euismod elementum. Consectetur lorem donec massa sapien faucibus. At imperdiet dui accumsan sit amet nulla facilisi morbi tempus. Rhoncus urna neque viverra justo nec ultrices dui. Sed faucibus turpis in eu mi bibendum.
+			% -– Text End]
+		% -– Subparagraph End]
+
+		\subparagraph [New Name] {New Name and the Seven Kings}
+			% [Text start –-
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Interdum posuere lorem ipsum dolor sit. Vitae nunc sed velit dignissim sodales ut eu sem. Justo eget magna fermentum iaculis eu. Viverra nam libero justo laoreet sit. Eget magna fermentum iaculis eu. Scelerisque eleifend donec pretium vulputate sapien nec sagittis aliquam. Aliquet bibendum enim facilisis gravida neque convallis a cras. Sit amet porttitor eget dolor morbi non arcu risus quis. Aliquam purus sit amet luctus venenatis lectus magna fringilla. Urna nec tincidunt praesent semper feugiat nibh sed. Commodo quis imperdiet massa tincidunt nunc pulvinar. Euismod nisi porta lorem mollis aliquam ut porttitor leo. Arcu cursus euismod quis viverra. Euismod nisi porta lorem mollis aliquam ut porttitor leo a.
+
+				Proin sed libero enim sed faucibus turpis in eu. Duis at consectetur lorem donec massa sapien faucibus et. Laoreet non curabitur gravida arcu ac tortor dignissim. Tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras. Semper viverra nam libero justo laoreet sit amet. Gravida arcu ac tortor dignissim convallis aenean et tortor at. Lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit. Et odio pellentesque diam volutpat commodo sed egestas egestas fringilla. Tincidunt ornare massa eget egestas purus viverra accumsan in. Nulla facilisi nullam vehicula ipsum a arcu cursus vitae congue. Pellentesque nec nam aliquam sem et tortor consequat id porta. Turpis egestas sed tempus urna et pharetra pharetra massa massa. Nisl tincidunt eget nullam non. Euismod elementum nisi quis eleifend. Magna sit amet purus gravida quis blandit turpis. Tortor at risus viverra adipiscing at in tellus. Nam libero justo laoreet sit.
+			% -– Text End]
+		% -– Subparagraph End]
+
+	% -- Section End]
+
+
+% .
+% .
+% .
+
+% Content End [>contentend >content.end]
+% ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+
+	\end {document}
+
+% Document End
+% ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
